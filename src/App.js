@@ -1,23 +1,19 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import Main from './components/Main'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from './actions/actionCreator';
 
-class App extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-
-		};
+const mapStateToProps = state => {
+	return {
+		posts: state.posts,
+		comments: state.comments
 	}
-	render() {
-		return (
-			<div>
-				<h1>
-					<Link to='/'>Reduxtagram</Link>
-				</h1>
-			</div>
-		)
-	}
-}
+};
+
+const mapDispatchToProps = dispatch => {
+	return bindActionCreators(actionCreators, dispatch)
+};
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 export default App;
