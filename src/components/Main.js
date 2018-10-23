@@ -10,11 +10,11 @@ const Main = (props) => {
 				<Link to='/'>Reduxtagram</Link>
 			</h1>
 			<Switch>
-	           	<Route exact path='/' render={(routeProps) => (
-                    <PhotoGrid {...routeProps} {...props}/>
+	           	<Route exact path='/' render={(routerProps) => (
+                    <PhotoGrid {...routerProps} {...props} />
                 )}/>                   
-	           	<Route path='/view/:postId' render={(routeProps) => (
-                    <Single {...routeProps} {...props}/>
+	           	<Route path='/view/:postId' render={({match}) => (
+                    <Single id={match.params} {...props}/>
                 )}/>
 	        </Switch>
 		</div>
