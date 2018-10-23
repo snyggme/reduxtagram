@@ -1,4 +1,4 @@
-export function increment(index) {
+export function increment(index, showLike) {
 	return {
 		type: 'INCREMENT_LIKES',
 		index

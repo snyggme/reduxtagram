@@ -1,6 +1,9 @@
 function comments(state = [], action) {
-	console.log(state, action);
-	return state;
+	switch(action.type) {
+
+		default:
+			return state
+	}
 }
 
 export default comments;
