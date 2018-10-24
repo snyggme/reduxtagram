@@ -1,12 +1,16 @@
 import React from 'react';
-import Phoro from './Photo'
+import Photo from './Photo';
+import Comments from './Comments';
 
 const Single = (props) => {
 	const i = props.posts.findIndex((post) => post.code === props.id.postId);
-	
+	const post = props.posts[i];
+	const postComments = props.comments[props.id.postId] || [];
+
 	return (
 		<div className='single-photo'>
-			Single
+			<Photo i={i} post={post} {...props} />
+			<Comments postComments={postComments} {...props} />
 		</div>
 	)
 }

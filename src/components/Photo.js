@@ -28,11 +28,12 @@ const Photo = (props) => {
 				<p>{post.caption}</p>
 				<div className='control-buttons'>
 					<button onClick={props.increment.bind(null, i)} className='like'>
-						&hearts; {post.likes}
+						<i class="fa fa-heart" aria-hidden="true"></i> {post.likes}
 					</button>
 					<Link className='button' to={`/view/${post.code}`}>
 						<span className='comment-count'>
-							<span className='speech-bubble' />
+							<span />
+							<i class="fa fa-comments" aria-hidden="true"></i>
 							{comments[post.code] ? comments[post.code].length : 0}
 						</span>
 					</Link>
