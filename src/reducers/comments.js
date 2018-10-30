@@ -1,4 +1,8 @@
 function comments(state = [], action) {
+	if (action.type === 'GET_COMMENTS_SUCCESS') {
+		return { ...action.comments };
+	}
+
 	if (typeof action.postId !== 'undefined') {
 		return {
 			...state,
@@ -6,10 +10,11 @@ function comments(state = [], action) {
 		}
 	}
 
-	return state
+	return state;
 }
 
 function postComments(state = [], action) {
+	console.log(state)
 	switch(action.type) {
 		case 'ADD_COMMENT':
 			return [...state, {
@@ -24,7 +29,6 @@ function postComments(state = [], action) {
 		default:
 			return state;
 	}
-	return state;
 }
 
 

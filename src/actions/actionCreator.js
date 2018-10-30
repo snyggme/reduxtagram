@@ -1,3 +1,7 @@
+import { httpGet } from '../utils/network'
+
+let chached = false;
+
 export function increment(index, showLike) {
 	return {
 		type: 'INCREMENT_LIKES',
@@ -19,5 +23,29 @@ export function removeComment(postId, i) {
 		type: 'REMOVE_COMMENT',
 		i,
 		postId
+	}
+}
+
+export function getPosts() {
+	return dispatch => {
+		if (!chached) {
+			chached = true;
+
+			httpGet('posts')
+				.then(json => {
+					dispatch({
+						type: 'GET_POSTS_SUCCESS',
+						posts: json.posts
+					});
+
+					dispatch({
+						type: 'GET_COMMENTS_SUCCESS',
+						comments: json.comments
+					});
+				})
+		      	.catch(e => {
+		      		console.log(e);
+		      	})
+		}
 	}
 }
