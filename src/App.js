@@ -6,8 +6,9 @@ import * as actionCreators from './actions/actionCreator';
 
 const mapStateToProps = state => {
 	return {
-		posts: state.posts,
-		comments: state.comments
+		posts: state.posts.arr,
+		comments: state.comments,
+		isLoading: state.posts.isLoading
 	}
 };
 

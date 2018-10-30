@@ -8,8 +8,9 @@ class PhotoGrid extends Component {
 	render() {
 		return (
 			<div className='photo-grid'>
-				{
-					this.props.posts.map((post, i) => 
+				{ this.props.isLoading 
+					? <div className='loading'></div>
+					: this.props.posts.map((post, i) => 
 						<Photo {...this.props} key={i} i={i} post={post} />)
 				}
 			</div>

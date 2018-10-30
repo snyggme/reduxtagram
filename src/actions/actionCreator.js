@@ -31,6 +31,10 @@ export function getPosts() {
 		if (!chached) {
 			chached = true;
 
+			dispatch({
+				type: 'GET_POSTS_REQUEST'
+			});
+
 			httpGet('posts')
 				.then(json => {
 					dispatch({
